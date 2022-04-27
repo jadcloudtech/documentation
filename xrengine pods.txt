@@ -1,0 +1,26 @@
+1. check status of pods
+2 . check log of pods
+3. imagepull error then issue with ecr registry 
+4. grep NoLimits inside gameserver pod
+
+kubectl exec -it dev-gameserver-29jlv-qmg5d ls packages/projects/projects
+Defaulting container name to dev-gameserver.
+Use 'kubectl describe pod/dev-gameserver-29jlv-qmg5d -n default' to see all of the containers in this pod.
+default-project
+only default-project inside pod
+
+5.kubectl run mysql-client --image=mysql:5.7 -it --rm --restart=Never -- /bin/bash
+mysql -h xrengine-database1.cilgu6kwgpv9.us-east-1.rds.amazonaws.com -u admin -p'YWU5MmQ5MDVhMzY5MmM5NmUxNGFjM2Iz'
+show datadades;
+use xrengine           (use <db name>)
+show tables;
+select * from project
+DELETTE from project where id=
+select * from project;
+exit
+
+
+6.increase resource for gameserver (if we need to change anything in game server like repo, cpu)
+
+ kubectl edit fleet dev-gameserver
+  Increase cpu -4
